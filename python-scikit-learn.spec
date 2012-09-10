@@ -21,6 +21,7 @@ BuildRequires:	blas-devel
 BuildRequires:	python-setuptools
 BuildRequires:	python-numpy-devel >= 1.3
 BuildRequires:	python-scipy >= 0.7
+BuildRequires:	python-sphinx, python-matplotlib
 # BuildRequires:	python-nose >= 0.10, python-coverage
 %py_requires -d
 
@@ -32,6 +33,10 @@ scikit-learn is a Python module for machine learning built on top of SciPy.
 
 %build
 %__python setup.py build
+pushd doc
+export PYTHONPATH=`ls -1d ../build/lib* | head -1`
+make html
+popd
 
 %install
 %__rm -rf %{buildroot}
@@ -48,6 +53,6 @@ PYTHONDONTWRITEBYTECODE= %__python setup.py install --root=%{buildroot}
 
 %files
 %defattr(-,root,root)
-%doc AUTHORS.rst README.rst examples/ 
+%doc AUTHORS.rst README.rst examples/ doc/_build/html/
 %py_platsitedir/scikit_learn*
 %py_platsitedir/sklearn*
