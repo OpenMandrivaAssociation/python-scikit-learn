@@ -6,6 +6,7 @@ License:	new BSD
 Group:		Development/Python
 URL:		https://pypi.org/project/scikit-learn/
 Source0:	https://pypi.org/packages/source/s/scikit-learn/scikit-learn-%{version}.tar.gz
+BuildRequires:	pkgconfig(python)
 BuildRequires:	python%{pyver}dist(cython)
 BuildRequires:	python%{pyver}dist(numpy)
 BuildRequires:	python%{pyver}dist(pip)
