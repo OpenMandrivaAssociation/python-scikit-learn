@@ -4,9 +4,14 @@ Version:	1.3.2
 Release:	1
 License:	new BSD
 Group:		Development/Python
-Source0:	https://files.pythonhosted.org/packages/source/s/scikit-learn/scikit-learn-%{version}.tar.gz
 URL:		https://pypi.org/project/scikit-learn/
+Source0:	https://pypi.org/packages/source/s/scikit-learn/scikit-learn-%{version}.tar.gz
+BuildRequires:	python%{pyver}dist(cython)
+BuildRequires:	python%{pyver}dist(numpy)
 BuildRequires:	python%{pyver}dist(pip)
+BuildRequires:	python%{pyver}dist(scipy)
+BuildRequires:	python%{pyver}dist(setuptools)
+BuildRequires:	python%{pyver}dist(wheel)
 
 %description
 A set of python modules for machine learning and data mining
