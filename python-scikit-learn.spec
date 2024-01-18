@@ -1,58 +1,28 @@
-%define module	scikit-learn
-%define name	python-%{module}
-%define version	0.12
-%define	rel		1
-%if %mdkversion < 201100
-%define release %mkrel 1
-%else
-%define	release	%rel
-%endif
-
-Summary:	Python modules for machine learning and data mining
-Name:		%{name}
-Version:	%{version}
-Release:	%{release}
-Source0:	http://pypi.python.org/packages/source/s/%{module}/%{module}-%{version}.tar.gz
-License:	BSD
+Summary:	A set of python modules for machine learning and data mining
+Name:		python-scikit-learn
+Version:	1.3.2
+Release:	1
+License:	new BSD
 Group:		Development/Python
-Url:		http://scikit-learn.sourceforge.net/
-BuildRoot:	%{_tmppath}/%{name}-%{version}-%{release}-buildroot
-BuildRequires:	blas-devel
-BuildRequires:	python-setuptools
-BuildRequires:	python-numpy-devel >= 1.3
-BuildRequires:	python-scipy >= 0.7
-BuildRequires:	python-sphinx, python-matplotlib
-# BuildRequires:	python-nose >= 0.10, python-coverage
-%py_requires -d
+Source0:	https://files.pythonhosted.org/packages/source/s/scikit-learn/scikit-learn-%{version}.tar.gz
+URL:		https://pypi.org/project/scikit-learn/
+BuildRequires:	python%{pyver}dist(pip)
 
 %description
-scikit-learn is a Python module for machine learning built on top of SciPy.
-
-%prep
-%setup -q -n %{module}-%{version}
-
-%build
-%__python setup.py build
-pushd doc
-export PYTHONPATH=`ls -1d ../build/lib* | head -1`
-make html
-popd
-
-%install
-%__rm -rf %{buildroot}
-PYTHONDONTWRITEBYTECODE= %__python setup.py install --root=%{buildroot}
-
-# Disable checks because of semaphore problem on Mandriva build cluster:
-#%check
-#pushd %{buildroot}%{py_platsitedir}/scikits
-#nosetests
-#popd
-
-%clean
-%__rm -rf %{buildroot}
+A set of python modules for machine learning and data mining
 
 %files
-%defattr(-,root,root)
-%doc AUTHORS.rst README.rst examples/ doc/_build/html/
-%py_platsitedir/scikit_learn*
-%py_platsitedir/sklearn*
+%{py_platsitedir}/sklearn
+%{py_platsitedir}/scikit_learn-*.*-info
+
+#----------------------------------------------------------------------
+
+%prep
+%autosetup -p1 -n scikit-learn-%{version}
+
+%build
+%py_build
+
+%install
+%py_install
+
