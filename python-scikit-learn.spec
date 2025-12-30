@@ -1,7 +1,7 @@
 Summary:	A set of python modules for machine learning and data mining
 Name:		python-scikit-learn
 Version:	1.4.1.post1
-Release:	2
+Release:	3
 License:	new BSD
 Group:		Development/Python
 URL:		https://pypi.org/project/scikit-learn/
