@@ -3,7 +3,7 @@
 
 Name:		python-scikit-learn
 Summary:	A set of python modules for machine learning and data mining
-Version:	1.8.0
+Version:	1.9.0
 Release:	1
 License:	BSD-3-Clause
 Group:		Development/Python
