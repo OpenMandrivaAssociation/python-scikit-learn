@@ -4,14 +4,14 @@
 Name:		python-scikit-learn
 Summary:	A set of python modules for machine learning and data mining
 Version:	1.9.0
-Release:	1
+Release:	2
 License:	BSD-3-Clause
 Group:		Development/Python
 URL:		https://scikit-learn.org/
 Source0:	https://github.com/scikit-learn/scikit-learn/archive/%{version}/%{name}-%{version}.tar.gz
 
 BuildSystem:	python
-BuildRequires:	pkgconfig(python)
+BuildRequires:	pkgconfig(python3)
 BuildRequires:	python%{pyver}dist(cython)
 BuildRequires:	python%{pyver}dist(meson-python)
 BuildRequires:	python%{pyver}dist(narwhals)
